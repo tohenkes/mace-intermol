@@ -527,8 +527,22 @@ def build_default_arg_parser() -> argparse.ArgumentParser:
             "huber",
             "universal",
             "energy_forces_dipole",
+            "intermol"
         ],
     )
+    parser.add_argument(
+        "--intermol_forces_weight",
+        help="weight of intermolecular forces loss",
+        type=float,
+        default=100.0,
+    )
+    parser.add_argument(
+        "--mol_idxs",
+        help="Path to npz file containing molecule indices for intermolecular forces loss",
+        type=str,
+        default=None,
+    )
+
     parser.add_argument(
         "--forces_weight", help="weight of forces loss", type=float, default=100.0
     )

@@ -665,6 +665,13 @@ def get_loss_fn(
             forces_weight=args.forces_weight,
             dipole_weight=args.dipole_weight,
         )
+    elif args.loss == "intermol":
+        loss_fn = modules.WeightedEnergyForceIntermolForceLoss(
+            energy_weight=args.energy_weight,
+            forces_weight=args.forces_weight,
+            intermol_forces_weight=args.intermol_forces_weight,
+            mol_idxs=np.load(args.mol_idxs,allow_pickle=True)['arr_0'].tolist(),
+        )
     else:
         loss_fn = modules.WeightedEnergyForcesLoss(energy_weight=1.0, forces_weight=1.0)
     return loss_fn
