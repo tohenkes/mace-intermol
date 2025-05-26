@@ -30,22 +30,15 @@ def _config():
                 [0.0, 1.0, 0.0],
             ]
         ),
-        properties={
-            "forces": np.array(
-                [
-                    [0.0, -1.3, 0.0],
-                    [1.0, 0.2, 0.0],
-                    [0.0, 1.1, 0.3],
-                ]
-            ),
-            "energy": -1.5,
-            "stress": np.array([1.0, 0.0, 0.5, 0.0, -1.0, 0.0]),
-        },
-        property_weights={
-            "forces": 1.0,
-            "energy": 1.0,
-            "stress": 1.0,
-        },
+        forces=np.array(
+            [
+                [0.0, -1.3, 0.0],
+                [1.0, 0.2, 0.0],
+                [0.0, 1.1, 0.3],
+            ]
+        ),
+        energy=-1.5,
+        stress=np.array([1.0, 0.0, 0.5, 0.0, -1.0, 0.0]),
     )
 
 
@@ -65,20 +58,14 @@ def _config1():
                 [0.0, 1.0, 0.0],
             ]
         ),
-        properties={
-            "forces": np.array(
-                [
-                    [0.0, -1.3, 0.0],
-                    [1.0, 0.2, 0.0],
-                    [0.0, 1.1, 0.3],
-                ]
-            ),
-            "energy": -1.5,
-        },
-        property_weights={
-            "forces": 1.0,
-            "energy": 1.0,
-        },
+        forces=np.array(
+            [
+                [0.0, -1.3, 0.0],
+                [1.0, 0.2, 0.0],
+                [0.0, 1.1, 0.3],
+            ]
+        ),
+        energy=-1.5,
         head="DFT",
     )
 
@@ -94,20 +81,14 @@ def _config2():
                 [0.1, 1.1, 0.1],
             ]
         ),
-        properties={
-            "forces": np.array(
-                [
-                    [0.1, -1.2, 0.1],
-                    [1.1, 0.3, 0.1],
-                    [0.1, 1.2, 0.4],
-                ]
-            ),
-            "energy": -1.4,
-        },
-        property_weights={
-            "forces": 1.0,
-            "energy": 1.0,
-        },
+        forces=np.array(
+            [
+                [0.1, -1.2, 0.1],
+                [1.1, 0.3, 0.1],
+                [0.1, 1.2, 0.4],
+            ]
+        ),
+        energy=-1.4,
         head="MP2",
     )
 

@@ -228,10 +228,21 @@ def _build_model(
     if args.model == "FoundationMACE":
         return modules.ScaleShiftMACE(**model_config_foundation)
     if args.model == "ScaleShiftBOTNet":
-        # say it is deprecated
-        raise RuntimeError("ScaleShiftBOTNet is deprecated, use MACE instead")
+        return modules.ScaleShiftBOTNet(
+            **model_config,
+            gate=modules.gate_dict[args.gate],
+            interaction_cls_first=modules.interaction_classes[args.interaction_first],
+            MLP_irreps=o3.Irreps(args.MLP_irreps),
+            atomic_inter_scale=args.std,
+            atomic_inter_shift=args.mean,
+        )
     if args.model == "BOTNet":
-        raise RuntimeError("BOTNet is deprecated, use MACE instead")
+        return modules.BOTNet(
+            **model_config,
+            gate=modules.gate_dict[args.gate],
+            interaction_cls_first=modules.interaction_classes[args.interaction_first],
+            MLP_irreps=o3.Irreps(args.MLP_irreps),
+        )
     if args.model == "AtomicDipolesMACE":
         assert args.loss == "dipole", "Use dipole loss with AtomicDipolesMACE model"
         assert (
